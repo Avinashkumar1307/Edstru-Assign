@@ -1,0 +1,130 @@
+import type { FieldDefinition } from '../types';
+
+/**
+ * Field definitions mapping employee properties to their filter types
+ * This configuration drives the dynamic filter UI
+ */
+export const fieldDefinitions: FieldDefinition[] = [
+  {
+    key: 'name',
+    label: 'Name',
+    type: 'text',
+  },
+  {
+    key: 'email',
+    label: 'Email',
+    type: 'text',
+  },
+  {
+    key: 'department',
+    label: 'Department',
+    type: 'single-select',
+    options: [
+      'Engineering',
+      'Design',
+      'Marketing',
+      'Sales',
+      'Finance',
+      'HR',
+    ],
+  },
+  {
+    key: 'role',
+    label: 'Role',
+    type: 'text',
+  },
+  {
+    key: 'salary',
+    label: 'Salary',
+    type: 'amount',
+  },
+  {
+    key: 'joinDate',
+    label: 'Join Date',
+    type: 'date',
+  },
+  {
+    key: 'isActive',
+    label: 'Is Active',
+    type: 'boolean',
+  },
+  {
+    key: 'skills',
+    label: 'Skills',
+    type: 'multi-select',
+    options: [
+      'React',
+      'TypeScript',
+      'Node.js',
+      'Python',
+      'Java',
+      'AWS',
+      'Docker',
+      'Kubernetes',
+      'GraphQL',
+      'PostgreSQL',
+      'MongoDB',
+      'Figma',
+      'Adobe XD',
+      'Leadership',
+      'Marketing',
+      'SEO',
+      'Sales',
+    ],
+  },
+  {
+    key: 'address.city',
+    label: 'City',
+    type: 'single-select',
+    options: [
+      'San Francisco',
+      'Seattle',
+      'Austin',
+      'New York',
+      'Los Angeles',
+      'Chicago',
+      'Boston',
+      'Denver',
+      'Atlanta',
+      'Miami',
+      'Portland',
+      'Phoenix',
+      'Dallas',
+      'San Diego',
+      'Philadelphia',
+      'Minneapolis',
+      'Nashville',
+      'Houston',
+      'Washington',
+      'Orlando',
+      'San Jose',
+    ],
+  },
+  {
+    key: 'address.state',
+    label: 'State',
+    type: 'single-select',
+    options: ['CA', 'WA', 'TX', 'NY', 'IL', 'MA', 'CO', 'GA', 'FL', 'OR', 'AZ', 'PA', 'MN', 'TN', 'DC'],
+  },
+  {
+    key: 'address.country',
+    label: 'Country',
+    type: 'single-select',
+    options: ['USA'],
+  },
+  {
+    key: 'projects',
+    label: 'Number of Projects',
+    type: 'number',
+  },
+  {
+    key: 'lastReview',
+    label: 'Last Review Date',
+    type: 'date',
+  },
+  {
+    key: 'performanceRating',
+    label: 'Performance Rating',
+    type: 'number',
+  },
+];
