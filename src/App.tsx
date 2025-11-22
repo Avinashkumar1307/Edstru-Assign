@@ -22,8 +22,8 @@ function App() {
 
   // Update persistence when filters change
   useEffect(() => {
+    setPersistFilters(activeFilters);
     if (activeFilters.length > 0) {
-      setPersistFilters(activeFilters);
       setToast({ open: true, message: 'Filters saved automatically', severity: 'success' });
     }
   }, [activeFilters, setPersistFilters]);
@@ -229,7 +229,7 @@ function App() {
 
           <Container maxWidth="xl">
             {/* Filter Builder */}
-            <FilterBuilder onFiltersChange={setActiveFilters} />
+            <FilterBuilder onFiltersChange={setActiveFilters} initialFilters={activeFilters} />
 
             {/* Employee Table */}
             <EmployeeTable

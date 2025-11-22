@@ -1,6 +1,6 @@
 import { Box, Button, Chip, Paper, Typography } from '@mui/material';
 import { Plus, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type {
   FilterCondition as FilterConditionType,
   FilterValidationError,
@@ -12,6 +12,7 @@ import { fieldDefinitions } from '../data/fieldDefinitions';
 
 interface FilterBuilderProps {
   onFiltersChange: (filters: FilterConditionType[]) => void;
+  initialFilters?: FilterConditionType[];
 }
 
 /**
@@ -19,9 +20,16 @@ interface FilterBuilderProps {
  * Handles adding, removing, and validating filters
  * src/components/FilterBuilder.tsx
  */
-export function FilterBuilder({ onFiltersChange }: FilterBuilderProps) {
-  const [conditions, setConditions] = useState<FilterConditionType[]>([]);
+export function FilterBuilder({ onFiltersChange, initialFilters = [] }: FilterBuilderProps) {
+  const [conditions, setConditions] = useState<FilterConditionType[]>(initialFilters);
   const [errors, setErrors] = useState<FilterValidationError[]>([]);
+
+  /**
+   * Sync conditions with initialFilters when they change
+   */
+  useEffect(() => {
+    setConditions(initialFilters);
+  }, [initialFilters]);
 
   /**
    * Create a new filter condition with default values
